@@ -1,13 +1,96 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form container */
+form {
+  margin-top: 100px;
+  background-color: #ffffff;
+  padding-top: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 8px;
+  padding-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 3px;
+  color: #333;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 1px;
+  margin-bottom: 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form input[type="password"], form input[type="email"], form input[type="text"], form input[type="tel"] {
+  box-sizing: border-box;
+}
+
+form select {
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+form button:disabled {
+  background-color: #cccccc;
+}
+
+form button:hover:not(:disabled) {
+  background-color: #45a049;
+}
+
+span {
+  color: red;
+  font-size: 0.9em;
+}
+
+/* Success page container */
+.success-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.success-container h1 {
+  color: #4CAF50;
+}
+
+.success-container pre {
+  text-align: left;
+  background-color: #f4f4f9;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
 }
