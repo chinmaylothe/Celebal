@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Success from './Success';
 import { useNavigate } from 'react-router-dom';
+import './App.css';
 
 const Form = () => {
   const navigate = useNavigate();
@@ -101,7 +102,7 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Registration Form</h1>
       <form onSubmit={handleSubmit}>
         <label>First Name:</label>

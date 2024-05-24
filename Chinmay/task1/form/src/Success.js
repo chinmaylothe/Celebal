@@ -2,13 +2,14 @@
 // Success.js
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import './App.css';
 
 const Success = () => {
   const location = useLocation();
   const { formData } = location.state;
 
   return (
-    <div>
+    <div className="container">
       <h1>Success</h1>
       <p>First Name: {formData.firstName}</p>
       <p>Last Name: {formData.lastName}</p>
