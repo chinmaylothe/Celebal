@@ -1,8 +1,11 @@
+
+// Form.js
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import Success from './Success';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -28,10 +31,7 @@ const Form = () => {
     e.preventDefault();
     const validationErrors = validateForm(formData);
     if (Object.keys(validationErrors).length === 0) {
-      history.push({
-        pathname: '/success',
-        state: { formData },
-      });
+      navigate('/success', { state: { formData } });
     } else {
       setErrors(validationErrors);
     }
@@ -41,7 +41,7 @@ const Form = () => {
     let errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const aadharRegex = /^\d{12}$/;
-    
+
     if (!formData.firstName) {
       errors.firstName = 'First Name is required';
     }
@@ -72,7 +72,7 @@ const Form = () => {
     if (!formData.aadharNo || !aadharRegex.test(formData.aadharNo)) {
       errors.aadharNo = 'Aadhar number should be 12 digits';
     }
-    
+
     return errors;
   };
 
@@ -99,27 +99,27 @@ const Form = () => {
         <label>First Name:</label>
         <input type="text" name="firstName" onChange={handleChange} />
         {errors.firstName && <div>{errors.firstName}</div>}
-        
+      <br />
         <label>Last Name:</label>
         <input type="text" name="lastName" onChange={handleChange} />
         {errors.lastName && <div>{errors.lastName}</div>}
-        
+        <br />
         <label>Username:</label>
         <input type="text" name="username" onChange={handleChange} />
         {errors.username && <div>{errors.username}</div>}
-        
+        <br />
         <label>Email:</label>
         <input type="text" name="email" onChange={handleChange} />
         {errors.email && <div>{errors.email}</div>}
-        
+        <br />
         <label>Password:</label>
         <input type="password" name="password" onChange={handleChange} />
         {errors.password && <div>{errors.password}</div>}
-        
+        <br />
         <label>Phone Number:</label>
         <input type="text" name="phone" onChange={handleChange} />
         {errors.phone && <div>{errors.phone}</div>}
-        
+        <br />
         <label>Country:</label>
         <select name="country" onChange={handleChange}>
           <option value="">Select Country</option>
@@ -128,7 +128,7 @@ const Form = () => {
           ))}
         </select>
         {errors.country && <div>{errors.country}</div>}
-        
+        <br />
         <label>City:</label>
         <select name="city" onChange={handleChange}>
           <option value="">Select City</option>
@@ -137,15 +137,15 @@ const Form = () => {
           ))}
         </select>
         {errors.city && <div>{errors.city}</div>}
-
+        <br />
         <label>PAN Number:</label>
         <input type="text" name="panNo" onChange={handleChange} />
         {errors.panNo && <div>{errors.panNo}</div>}
-        
+        <br />
         <label>Aadhar Number:</label>
         <input type="text" name="aadharNo" onChange={handleChange} />
         {errors.aadharNo && <div>{errors.aadharNo}</div>}
-        
+        <br />
         <button type="submit">Submit</button>
       </form>
     </div>
