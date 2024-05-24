@@ -92,6 +92,14 @@ const Form = () => {
     'Berlin'
   ];
 
+  const countryCodes = {
+    'USA': '+1',
+    'Canada': '+1',
+    'UK': '+44',
+    'Australia': '+61',
+    'Germany': '+49'
+  };
+
   return (
     <div>
       <h1>Registration Form</h1>
@@ -116,6 +124,16 @@ const Form = () => {
         <input type="password" name="password" onChange={handleChange} />
         {errors.password && <div>{errors.password}</div>}
         <br />
+         <label>Country Code:</label>
+        <select name="countryCode" onChange={handleChange}>
+          <option value="">Select Country Code</option>
+          {Object.keys(countryCodes).map((country, index) => (
+            <option key={index} value={countryCodes[country]}>
+              {country} ({countryCodes[country]})
+            </option>
+          ))}
+        </select>
+        {errors.countryCode && <div>{errors.countryCode}</div>}
         <label>Phone Number:</label>
         <input type="text" name="phone" onChange={handleChange} />
         {errors.phone && <div>{errors.phone}</div>}
