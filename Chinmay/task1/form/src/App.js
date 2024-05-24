@@ -1,19 +1,18 @@
+// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Form from './Form';
 import Success from './Success';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div>
-        <Switch>
-          <Route path="/" exact component={Form} />
-          <Route path="/success" component={Success} />
-        </Switch>
-      </div>
+      <Routes>
+        <Route path="/" element={<Form />} />
+        <Route path="/success" element={<Success />} />
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;
