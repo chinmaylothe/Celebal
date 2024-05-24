@@ -76,6 +76,22 @@ const Form = () => {
     return errors;
   };
 
+  const countries = [
+    'USA',
+    'Canada',
+    'UK',
+    'Australia',
+    'Germany'
+  ];
+
+  const cities = [
+    'New York',
+    'Toronto',
+    'London',
+    'Sydney',
+    'Berlin'
+  ];
+
   return (
     <div>
       <h1>Registration Form</h1>
@@ -107,14 +123,21 @@ const Form = () => {
         <label>Country:</label>
         <select name="country" onChange={handleChange}>
           <option value="">Select Country</option>
-          {/* Add options for countries */}
+          {countries.map((country, index) => (
+            <option key={index} value={country}>{country}</option>
+          ))}
         </select>
         {errors.country && <div>{errors.country}</div>}
         
         <label>City:</label>
-        <input type="text" name="city" onChange={handleChange} />
+        <select name="city" onChange={handleChange}>
+          <option value="">Select City</option>
+          {cities.map((city, index) => (
+            <option key={index} value={city}>{city}</option>
+          ))}
+        </select>
         {errors.city && <div>{errors.city}</div>}
-        
+
         <label>PAN Number:</label>
         <input type="text" name="panNo" onChange={handleChange} />
         {errors.panNo && <div>{errors.panNo}</div>}
