@@ -1,7 +1,4 @@
-
-// Form.js
 import React, { useState } from 'react';
-import Success from './Success';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 
@@ -22,6 +19,7 @@ const Form = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -107,25 +105,43 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         <label>First Name:</label>
         <input type="text" name="firstName" onChange={handleChange} />
-        {errors.firstName && <div>{errors.firstName}</div>}
-      <br />
+        {errors.firstName && <div className="error">{errors.firstName}</div>}
+        <br />
+
         <label>Last Name:</label>
         <input type="text" name="lastName" onChange={handleChange} />
-        {errors.lastName && <div>{errors.lastName}</div>}
+        {errors.lastName && <div className="error">{errors.lastName}</div>}
         <br />
+
         <label>Username:</label>
         <input type="text" name="username" onChange={handleChange} />
-        {errors.username && <div>{errors.username}</div>}
+        {errors.username && <div className="error">{errors.username}</div>}
         <br />
+
         <label>Email:</label>
         <input type="text" name="email" onChange={handleChange} />
-        {errors.email && <div>{errors.email}</div>}
+        {errors.email && <div className="error">{errors.email}</div>}
         <br />
+
         <label>Password:</label>
-        <input type="password" name="password" onChange={handleChange} />
-        {errors.password && <div>{errors.password}</div>}
+        <div className="password-container">
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            onChange={handleChange}
+          />
+          <button
+            type="button"
+            className="toggle-password"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        </div>
+        {errors.password && <div className="error">{errors.password}</div>}
         <br />
-         <label>Country Code:</label>
+
+        <label>Country Code:</label>
         <select name="countryCode" onChange={handleChange}>
           <option value="">Select Country Code</option>
           {Object.keys(countryCodes).map((country, index) => (
@@ -134,11 +150,14 @@ const Form = () => {
             </option>
           ))}
         </select>
-        {errors.countryCode && <div>{errors.countryCode}</div>}
+        {errors.countryCode && <div className="error">{errors.countryCode}</div>}
+        <br />
+
         <label>Phone Number:</label>
         <input type="text" name="phone" onChange={handleChange} />
-        {errors.phone && <div>{errors.phone}</div>}
+        {errors.phone && <div className="error">{errors.phone}</div>}
         <br />
+
         <label>Country:</label>
         <select name="country" onChange={handleChange}>
           <option value="">Select Country</option>
@@ -146,8 +165,9 @@ const Form = () => {
             <option key={index} value={country}>{country}</option>
           ))}
         </select>
-        {errors.country && <div>{errors.country}</div>}
+        {errors.country && <div className="error">{errors.country}</div>}
         <br />
+
         <label>City:</label>
         <select name="city" onChange={handleChange}>
           <option value="">Select City</option>
@@ -155,16 +175,19 @@ const Form = () => {
             <option key={index} value={city}>{city}</option>
           ))}
         </select>
-        {errors.city && <div>{errors.city}</div>}
+        {errors.city && <div className="error">{errors.city}</div>}
         <br />
+
         <label>PAN Number:</label>
         <input type="text" name="panNo" onChange={handleChange} />
-        {errors.panNo && <div>{errors.panNo}</div>}
+        {errors.panNo && <div className="error">{errors.panNo}</div>}
         <br />
+
         <label>Aadhar Number:</label>
         <input type="text" name="aadharNo" onChange={handleChange} />
-        {errors.aadharNo && <div>{errors.aadharNo}</div>}
+        {errors.aadharNo && <div className="error">{errors.aadharNo}</div>}
         <br />
+
         <button type="submit">Submit</button>
       </form>
     </div>

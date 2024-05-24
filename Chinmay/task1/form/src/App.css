@@ -1,24 +1,30 @@
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; 
+    background-color: #2e885767; 
+    overflow: hidden; /* Prevent body scrolling */
   }
   
   .container {
-    background-color: #ffffff; 
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
+    overflow-y: auto; /* Enable scrolling within the container */
+    max-height: 80vh; /* Limit container height to allow scrolling */
   }
   
   h1 {
     text-align: center;
+    color: #333333; 
+  }
+  
+  h2 {
     color: #333333; 
   }
   
@@ -29,7 +35,7 @@ body {
   
   label {
     margin-top: 10px;
-    color: #333333;
+    color: #333333; 
   }
   
   input, select {
@@ -46,7 +52,7 @@ body {
   button {
     margin-top: 20px;
     padding: 10px;
-    background-color: #007bff; /* Blue button */
+    background-color: #007bff; 
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -54,7 +60,7 @@ body {
   }
   
   button:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
   }
   
   .error {
@@ -63,3 +69,29 @@ body {
     margin-top: 5px;
   }
   
+  .password-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[name="password"] {
+    flex: 1;
+  }
+  
+  .toggle-password {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #007bff; 
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .toggle-password:hover {
+    background-color: #0056b3; 
+  }
+  
+  .container::-webkit-scrollbar {
+    width: 8px;
+  }  
