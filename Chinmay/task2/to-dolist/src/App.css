@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+.todo-list {
+  width: 300px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.input-container button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.controls label {
+  font-size: 14px;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-list li.completed span {
+  text-decoration: line-through;
+}
+
+.task-list button {
+  padding: 5px;
+  font-size: 14px;
+  background: red;
   color: white;
+  border: none;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-list button:hover {
+  background: darkred;
 }
