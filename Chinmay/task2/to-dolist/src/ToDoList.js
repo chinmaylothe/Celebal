@@ -5,7 +5,6 @@ const ToDoList = () => {
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
   const [filter, setFilter] = useState('all');
-  const [sort, setSort] = useState('asc');
 
   useEffect(() => {
     // Load tasks from localStorage
@@ -40,35 +39,36 @@ const ToDoList = () => {
     setFilter(e.target.value);
   };
 
-  const handleSortChange = (e) => {
-    setSort(e.target.value);
-  };
-
-  const sortedTasks = [...tasks].sort((a, b) => {
-    if (sort === 'asc') {
-      return a.text.localeCompare(b.text);
-    } else {
-      return b.text.localeCompare(a.text);
-    }
-  });
-
-  const filteredTasks = sortedTasks.filter(task => {
+  const filteredTasks = tasks.filter(task => {
     if (filter === 'completed') return task.completed;
     if (filter === 'incomplete') return !task.completed;
     return true;
   });
 
+  const completedTasksCount = tasks.filter(task => task.completed).length;
+
   return (
     <div className="todo-list">
-      <h1>To-Do List</h1>
+      <h1>TODO</h1>
+      <div className="task-summary">
+        <div className="task-summary-circle">
+          <span>{completedTasksCount}/{tasks.length}</span>
+        </div>
+        <div>
+          <h2>Task Done</h2>
+          <p>Keep it up</p>
+        </div>
+      </div>
       <div className="input-container">
         <input
           type="text"
           value={taskInput}
           onChange={(e) => setTaskInput(e.target.value)}
-          placeholder="Add a new task"
+          placeholder="Write your next task"
         />
-        <button onClick={addTask}>Add Task</button>
+        <button onClick={addTask}>
+          <span className="plus-icon">+</span>
+        </button>
       </div>
       <div className="controls">
         <label>
@@ -79,21 +79,18 @@ const ToDoList = () => {
             <option value="incomplete">Incomplete</option>
           </select>
         </label>
-        <label>
-          Sort:
-          <select value={sort} onChange={handleSortChange}>
-            <option value="asc">Ascending</option>
-            <option value="desc">Descending</option>
-          </select>
-        </label>
       </div>
       <ul className="task-list">
         {filteredTasks.map(task => (
           <li key={task.id} className={task.completed ? 'completed' : ''}>
-            <span>{task.text}</span>
-            <div>
-              <button className="complete-button" onClick={() => toggleCompletion(task.id)}>Complete</button>
-              <button className="remove-button" onClick={() => removeTask(task.id)}>Remove</button>
+            <span onClick={() => toggleCompletion(task.id)}>{task.text}</span>
+            <div className="task-buttons">
+              <button className="complete-button" onClick={() => toggleCompletion(task.id)}>
+                <span className="check-icon">&#x2714;</span>
+              </button>
+              <button className="remove-button" onClick={() => removeTask(task.id)}>
+                <span className="trash-icon">&#x1F5D1;</span>
+              </button>
             </div>
           </li>
         ))}

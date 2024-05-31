@@ -1,29 +1,75 @@
-.todo-list {
-  width: 300px;
-  margin: 0 auto;
+body {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
   font-family: Arial, sans-serif;
+}
+
+.todo-list {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.task-summary {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-summary-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 24px;
+  color: #fff;
 }
 
 .input-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .input-container input {
   flex-grow: 1;
   padding: 10px;
   font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .input-container button {
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
+  background-color: #3a3a3a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #5a5a5a;
 }
 
 .controls {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin-bottom: 20px;
 }
 
 .controls label {
@@ -40,11 +86,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.task-list li.completed {
-  background-color: lightgreen;
+  border-bottom: 1px solid #444;
 }
 
 .task-list li span {
@@ -52,30 +94,41 @@
   cursor: pointer;
 }
 
-.task-list button {
-  padding: 5px;
-  font-size: 14px;
-  margin-left: 5px;
+.task-list li.completed span {
+  text-decoration: line-through;
+  color: gray;
 }
 
-.task-list .remove-button {
-  background: red;
-  color: white;
+.task-list .task-buttons {
+  display: flex;
+}
+
+.task-list button {
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 5px;
+  background: transparent;
+  color: #fff;
   border: none;
   cursor: pointer;
 }
 
 .task-list .remove-button:hover {
-  background: darkred;
-}
-
-.task-list .complete-button {
-  background: green;
-  color: white;
-  border: none;
-  cursor: pointer;
+  color: red;
 }
 
 .task-list .complete-button:hover {
-  background: darkgreen;
+  color: green;
+}
+
+.plus-icon {
+  font-size: 20px;
+}
+
+.check-icon {
+  font-size: 20px;
+}
+
+.trash-icon {
+  font-size: 20px;
 }
