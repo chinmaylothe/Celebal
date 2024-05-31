@@ -43,19 +43,39 @@
   border-bottom: 1px solid #ddd;
 }
 
-.task-list li.completed span {
-  text-decoration: line-through;
+.task-list li.completed {
+  background-color: lightgreen;
+}
+
+.task-list li span {
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 .task-list button {
   padding: 5px;
   font-size: 14px;
+  margin-left: 5px;
+}
+
+.task-list .remove-button {
   background: red;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-.task-list button:hover {
+.task-list .remove-button:hover {
   background: darkred;
+}
+
+.task-list .complete-button {
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.task-list .complete-button:hover {
+  background: darkgreen;
 }

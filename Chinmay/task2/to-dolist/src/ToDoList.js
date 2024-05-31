@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; 
+import './App.css'; // Add basic styles
 
 const ToDoList = () => {
   const [tasks, setTasks] = useState([]);
@@ -90,8 +90,11 @@ const ToDoList = () => {
       <ul className="task-list">
         {filteredTasks.map(task => (
           <li key={task.id} className={task.completed ? 'completed' : ''}>
-            <span onClick={() => toggleCompletion(task.id)}>{task.text}</span>
-            <button onClick={() => removeTask(task.id)}>Remove</button>
+            <span>{task.text}</span>
+            <div>
+              <button className="complete-button" onClick={() => toggleCompletion(task.id)}>Complete</button>
+              <button className="remove-button" onClick={() => removeTask(task.id)}>Remove</button>
+            </div>
           </li>
         ))}
       </ul>
