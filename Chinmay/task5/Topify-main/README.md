@@ -1,8 +1,5 @@
 
 ## ScreenShots 
-#### Mobile 
-
-
 
 #### Desktop
 ##### HomePage
